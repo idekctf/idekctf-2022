@@ -1,0 +1,18 @@
+apiVersion: kctf.dev/v1
+kind: Challenge
+metadata:
+  name: chronophobia
+spec:
+  deployed: true
+  powDifficultySeconds: 0
+  network:
+    public: true
+  healthcheck:
+    # TIP: disable the healthcheck during development
+    enabled: true
+    # image: us.gcr.io/dotted-forest-314903/dhke-adventure-healthcheck:dcebd18b276bf7daf1852070ba593871b73353b3fabd07cc786849ac445c4d1e
+
+    image: us.gcr.io/idekctf-374221/chronophobia-healthcheck:ef32afcd45471e645b8d6d103d2073178c467284ca367b0d1e5d10e51c65c748
+  # image: us.gcr.io/dotted-forest-314903/dhke-adventure-challenge:cc01a87e98d6467a80ed6045f185d84b8fca4429651e9c30383cc52dd07c67d2
+
+  image: us.gcr.io/idekctf-374221/chronophobia-challenge:36ab441ee779404cfe02b5ed690a02f8046351349367bd62300fb8f2e11410ad

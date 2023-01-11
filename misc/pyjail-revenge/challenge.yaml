@@ -1,0 +1,14 @@
+apiVersion: kctf.dev/v1
+kind: Challenge
+metadata:
+  name: pyjail-revenge
+spec:
+  deployed: true
+  powDifficultySeconds: 0
+  network:
+    public: true
+  healthcheck:
+    # TIP: disable the healthcheck during development
+    enabled: true
+    image: us.gcr.io/idekctf-374221/pyjail-revenge-healthcheck:bc3e9f4dafc6c5ee9340ce67e91b9819fcf435defcd4c0c56449f157e548194a
+  image: us.gcr.io/idekctf-374221/pyjail-revenge-challenge:f1760a120a77a526367326deddcf0dad0b8c20349cd66d75b23bed87f95a4219

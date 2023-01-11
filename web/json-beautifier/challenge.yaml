@@ -1,0 +1,14 @@
+apiVersion: kctf.dev/v1
+kind: Challenge
+metadata:
+  name: json-beautifier
+spec:
+  deployed: true
+  powDifficultySeconds: 0
+  network:
+    public: true
+  healthcheck:
+    # TIP: disable the healthcheck during development
+    enabled: true
+    image: us.gcr.io/idekctf-374221/json-beautifier-healthcheck:5e9a79350a7787d9ea85b1ca9cb8bbccb74bb51d5d8ec8e87c8fe04ae8d9502b
+  image: us.gcr.io/idekctf-374221/json-beautifier-challenge:d6961c6265ce0b2bbbc49dbfa63112eb503083b1ec87652862e2338f34b8caad

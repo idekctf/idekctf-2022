@@ -1,0 +1,14 @@
+apiVersion: kctf.dev/v1
+kind: Challenge
+metadata:
+  name: malbolge1
+spec:
+  deployed: true
+  powDifficultySeconds: 0
+  network:
+    public: true
+  healthcheck:
+    # TIP: disable the healthcheck during development
+    enabled: true
+    image: us.gcr.io/idekctf-374221/malbolge1-healthcheck:36866429c60cd4c96bbcff6b1032a382c1c4b3764f914fb812cdd983a1a5629a
+  image: us.gcr.io/idekctf-374221/malbolge1-challenge:76991d03d391562e968a3743cbc54d4a7f5eb3be65b24e0622a692ff1a38e541

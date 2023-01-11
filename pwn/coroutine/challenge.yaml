@@ -1,0 +1,14 @@
+apiVersion: kctf.dev/v1
+kind: Challenge
+metadata:
+  name: coroutine
+spec:
+  deployed: true
+  powDifficultySeconds: 0
+  network:
+    public: true
+  healthcheck:
+    # TIP: disable the healthcheck during development
+    enabled: true
+    image: us.gcr.io/idekctf-374221/coroutine-healthcheck:a7c6745f0ba9e1e938cde6a4c5b0ff75cb9ab45f267ab9d4960f5814bbbfd10b
+  image: us.gcr.io/idekctf-374221/coroutine-challenge:eae116cd01adef8794584a34cdce82e01de26049506345ac8c4b4b93cb20ac72

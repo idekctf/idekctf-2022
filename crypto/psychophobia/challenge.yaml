@@ -1,0 +1,14 @@
+apiVersion: kctf.dev/v1
+kind: Challenge
+metadata:
+  name: psychophobia
+spec:
+  deployed: true
+  powDifficultySeconds: 0
+  network:
+    public: true
+  healthcheck:
+    # TIP: disable the healthcheck during development
+    enabled: true
+    image: eu.gcr.io/testing-374221/psychophobia-healthcheck:845ef2f2fc4224095af6c18e9e31f431c6daea8f3d0179e66ba82ca220e2db0b
+  image: us.gcr.io/idekctf-374221/psychophobia-challenge:ab8ddda20109d68b54c7b2ce0fa09325b8f9fd8309b2afef665bd0064f8d09cd

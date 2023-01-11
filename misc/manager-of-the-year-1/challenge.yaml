@@ -1,0 +1,14 @@
+apiVersion: kctf.dev/v1
+kind: Challenge
+metadata:
+  name: manager-of-the-year-1
+spec:
+  deployed: true
+  powDifficultySeconds: 0
+  network:
+    public: true
+  healthcheck:
+    # TIP: disable the healthcheck during development
+    enabled: true
+    image: us.gcr.io/idekctf-374221/manager-of-the-year-1-healthcheck:02dda2a6ab4d274b6762651894588dd0d3fdde6c6164b16d0d50b052aecae033
+  image: us.gcr.io/idekctf-374221/manager-of-the-year-1-challenge:1256228b16fe32ed5fe220b183a03536cd6f01f8ec3d66f9180d92a1ffeb0d39

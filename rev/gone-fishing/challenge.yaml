@@ -1,0 +1,15 @@
+apiVersion: kctf.dev/v1
+kind: Challenge
+metadata:
+  name: gone-fishing
+spec:
+  deployed: true
+  powDifficultySeconds: 60 # TODO ENABLE THIS
+  # powDifficultySeconds: 0
+  network:
+    public: true
+  healthcheck:
+    # TIP: disable the healthcheck during development
+    enabled: true
+    image: us.gcr.io/idekctf-374221/gone-fishing-healthcheck:6cb83698c8074e8002943d475036afadf8487008ad82b2afd7e7bbbf58614344
+  image: us.gcr.io/idekctf-374221/gone-fishing-challenge:acd71e4dec81fe0254ae5a67a2634189216bfd38f769ce103c7e46e0903ca8ba

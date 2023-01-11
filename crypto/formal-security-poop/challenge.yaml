@@ -1,0 +1,14 @@
+apiVersion: kctf.dev/v1
+kind: Challenge
+metadata:
+  name: formal-security-poop
+spec:
+  deployed: true
+  powDifficultySeconds: 0
+  network:
+    public: true
+  healthcheck:
+    # TIP: disable the healthcheck during development
+    enabled: true
+    image: us.gcr.io/idekctf-374221/formal-security-poop-healthcheck:254b2a4e6fb41500b157687392ae10e0cd53c1cfc004484767045c4d3c1e07ad
+  image: us.gcr.io/idekctf-374221/formal-security-poop-challenge:56671c748bf83864b964123482a4772082b98abf988d64bdf76ee3e97a2906f7

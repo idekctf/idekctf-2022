@@ -1,0 +1,14 @@
+apiVersion: kctf.dev/v1
+kind: Challenge
+metadata:
+  name: megalophobia
+spec:
+  deployed: true
+  powDifficultySeconds: 0
+  network:
+    public: true
+  healthcheck:
+    # TIP: disable the healthcheck during development
+    enabled: false
+    image: TODO
+  image: us.gcr.io/idekctf-374221/megalophobia-challenge:916c3efaa25dbc48b86bd62849ea392406462b3cdfef84046767242a6fb6229e

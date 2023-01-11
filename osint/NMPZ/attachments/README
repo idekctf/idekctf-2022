@@ -1,0 +1,16 @@
+Figure out in which country each image was taken.
+The first letter of every country's name will create the flag.
+Countries with over 10 million inhabitants will have a capital letter.
+Countries with less than one million inhabitants become an underscore.
+
+Example:
+idek{TEST_flAg}
+1.png: Turkey
+2.png: Ecuador
+3.png: Spain
+4.png: Thailand
+5.png: Vatican City
+6.png: Finland
+7.png: Lithuania
+8.png: Argentina
+9.png: Georgia

@@ -1,0 +1,2 @@
+cargo:rustc-env=TYPENUM_BUILD_CONSTS=/home/joshual/Desktop/CTF/idek/2022/blockchain/baby-3/healthcheck/target/release/build/typenum-96629637e31fd49a/out/consts.rs
+cargo:rustc-env=TYPENUM_BUILD_OP=/home/joshual/Desktop/CTF/idek/2022/blockchain/baby-3/healthcheck/target/release/build/typenum-96629637e31fd49a/out/op.rs

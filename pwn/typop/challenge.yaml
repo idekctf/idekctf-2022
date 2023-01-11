@@ -1,0 +1,14 @@
+apiVersion: kctf.dev/v1
+kind: Challenge
+metadata:
+  name: typop
+spec:
+  deployed: true
+  powDifficultySeconds: 0
+  network:
+    public: true
+  healthcheck:
+    # TIP: disable the healthcheck during development
+    enabled: true
+    image: us.gcr.io/idekctf-374221/typop-healthcheck:3b3a2c467edbb8d662b7a8cb79747bfda2fa9a39c102ac06b7b33ffd84944e58
+  image: us.gcr.io/idekctf-374221/typop-challenge:8b81f1888ab41fff2e1726eb6027add6f8d02b01f181f9fedd05985d1cd783a5

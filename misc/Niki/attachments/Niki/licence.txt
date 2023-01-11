@@ -1,0 +1,20 @@
+LIZENZVEREINBARUNG
+
+NIKI ist Freeware
+
+
+HAFTUNGSAUSSCHLUSS
+
+Dynasys wurde vom Autor mit großer Sorgfalt erstellt. Trotzdem lassen sich Fehler nie 
+ganz vermeiden. Der Autor sieht sich deshalb gezwungen, weder eine Garantie noch die 
+juristische Verantwortung oder irgendeine Haftung für eventuelle Folgeschäden, die auf 
+Programmfehler oder fehlerhafte Angaben in der Anleitung zurückzuführen sind, zu 
+übernehmen.
+
+Der Autor übernimmt keine Garantie dafür, dass die im Programm enthaltene Funktionen 
+den Anforderungen des Benutzers genügen oder dass der Programmbetrieb reibungslos 
+bzw. fehlerfrei abläuft.
+   
+
+W.Hupfeld
+

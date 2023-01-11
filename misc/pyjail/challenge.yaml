@@ -1,0 +1,14 @@
+apiVersion: kctf.dev/v1
+kind: Challenge
+metadata:
+  name: pyjail
+spec:
+  deployed: true
+  powDifficultySeconds: 0
+  network:
+    public: true
+  healthcheck:
+    # TIP: disable the healthcheck during development
+    enabled: true
+    image: us.gcr.io/idekctf-374221/pyjail-healthcheck:4475fd4f13c62bdc84df5c3514bcd35888da6512c15d6c038b54d8e4d7722f7b
+  image: us.gcr.io/idekctf-374221/pyjail-challenge:3acfaaf44f95c0ddc6d167d1e2df2680c742b3ae2f721262a5164ccc1dc63f8b

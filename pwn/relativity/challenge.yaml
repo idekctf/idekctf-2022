@@ -1,0 +1,14 @@
+apiVersion: kctf.dev/v1
+kind: Challenge
+metadata:
+  name: relativity
+spec:
+  deployed: true
+  powDifficultySeconds: 0
+  network:
+    public: true
+  healthcheck:
+    # TIP: disable the healthcheck during development
+    enabled: true
+    image: us.gcr.io/idekctf-374221/relativity-healthcheck:5bc802e86770cdc568a3d06053957039d1905d8b41d43218950e0c8bd233fb3a
+  image: us.gcr.io/idekctf-374221/relativity-challenge:d240dcd0ef3bd00999b726b49c40381856759cd4921637ee008e8d3590025cf9

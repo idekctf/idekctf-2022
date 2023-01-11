@@ -1,0 +1,18 @@
+apiVersion: kctf.dev/v1
+kind: Challenge
+metadata:
+  name: tychophobia
+spec:
+  deployed: true
+  powDifficultySeconds: 0
+  network:
+    public: true
+  healthcheck:
+    # TIP: disable the healthcheck during development
+    enabled: true
+    # image: us.gcr.io/dotted-forest-314903/dhke-adventure-healthcheck:dcebd18b276bf7daf1852070ba593871b73353b3fabd07cc786849ac445c4d1e
+
+    image: us.gcr.io/idekctf-374221/tychophobia-healthcheck:872e9e9bbdf0446e1cff220631bf9b5833cf02fe6980cb710330c32d204b7708
+  # image: us.gcr.io/dotted-forest-314903/dhke-adventure-challenge:cc01a87e98d6467a80ed6045f185d84b8fca4429651e9c30383cc52dd07c67d2
+
+  image: us.gcr.io/idekctf-374221/tychophobia-challenge:762a81ecdf471c39749636ee8e565709333b166b3ecbdf501e21a63e64742ea1

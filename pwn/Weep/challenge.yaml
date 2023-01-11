@@ -1,0 +1,14 @@
+apiVersion: kctf.dev/v1
+kind: Challenge
+metadata:
+  name: weep
+spec:
+  deployed: true
+  powDifficultySeconds: 0
+  network:
+    public: true
+  healthcheck:
+    # TIP: disable the healthcheck during development
+    enabled: true
+    image: us.gcr.io/idekctf-374221/weep-healthcheck:b30d15cad9487335050fbcdfbe130755c8510168d0b998bd087ed37652539e96
+  image: us.gcr.io/idekctf-374221/weep-challenge:1fc160b45fa5f0299d5b3317741aff997bf5a65bc9c2420e12a54f26e133f0fb

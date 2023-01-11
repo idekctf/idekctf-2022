@@ -1,0 +1,25 @@
+apiVersion: kctf.dev/v1
+kind: Challenge
+metadata:
+  name: baby-blockchain-2
+spec:
+  deployed: true
+  powDifficultySeconds: 0
+  network:
+    public: true
+  podTemplate:
+    template:
+      spec:
+        containers:
+          - name: challenge
+            volumeMounts:
+              - name: tmp
+                mountPath: /tmp
+        volumes:
+          - name: tmp
+            emptyDir: {}
+  healthcheck:
+    # TIP: disable the healthcheck during development
+    enabled: true
+    image: us.gcr.io/idekctf-374221/baby-blockchain-2-healthcheck:bce47c4ce9e5b5b86807959b803bc6a73cdb365b8f9bb60d3a8b3744e52b24bc
+  image: us.gcr.io/idekctf-374221/baby-blockchain-2-challenge:df239203ecd9268fcf7bc465b4f1d40be6d3c21f5e9fb21718648758aff323eb

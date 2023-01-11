@@ -1,0 +1,1 @@
+patchelf --set-interpreter ./ld-2.35.so --add-needed ./libc-2.35.so ./minkymomo

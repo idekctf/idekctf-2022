@@ -1,0 +1,14 @@
+apiVersion: kctf.dev/v1
+kind: Challenge
+metadata:
+  name: angery
+spec:
+  deployed: true
+  powDifficultySeconds: 0
+  network:
+    public: true
+  healthcheck:
+    # TIP: disable the healthcheck during development
+    enabled: true
+    image: us.gcr.io/idekctf-374221/angery-healthcheck:b0d5eda7bf697e207daf7da6327459a7cace6c8b5005ab885d3f48da8b9dc544
+  image: us.gcr.io/idekctf-374221/angery-challenge:d9c3f8d445e191528f36dc3fb8496219001771b14e5ebb42593a923740939b08

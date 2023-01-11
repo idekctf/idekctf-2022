@@ -1,0 +1,5 @@
+1. I noticed it was brainfuck
+2. Used an online brainfuck to C compiler
+3. Sat there and didn't understand the C code for a very long time
+4. Started simplifying the C code aggresively
+5. Finally it was simple enough that I could write the "inverse" code and run it on the static target string

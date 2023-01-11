@@ -1,0 +1,18 @@
+apiVersion: kctf.dev/v1
+kind: Challenge
+metadata:
+  name: decidophobia
+spec:
+  deployed: true
+  powDifficultySeconds: 0
+  network:
+    public: true
+  healthcheck:
+    # TIP: disable the healthcheck during development
+    enabled: true
+    # image: us.gcr.io/dotted-forest-314903/dhke-adventure-healthcheck:dcebd18b276bf7daf1852070ba593871b73353b3fabd07cc786849ac445c4d1e
+
+    image: us.gcr.io/idekctf-374221/decidophobia-healthcheck:8ba3b01c7a9bf54c03123182f52ed2f1205fdcdbc330810dee2141e8217a857b
+  # image: us.gcr.io/dotted-forest-314903/dhke-adventure-challenge:cc01a87e98d6467a80ed6045f185d84b8fca4429651e9c30383cc52dd07c67d2
+
+  image: us.gcr.io/idekctf-374221/decidophobia-challenge:6161f7cbee8a0c4aa89fbb77975ba89d08fb10bac955079e79fc6cd14f99ea3d

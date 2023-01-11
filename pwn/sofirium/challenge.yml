@@ -1,0 +1,9 @@
+apiVersion: kctf.dev/v1
+kind: Challenge
+metadata:
+  name: Sofire=good 
+spec:
+  deployed: true
+  powDifficultySeconds: 60 # TODO ENABLE THIS
+  network:
+    public: true

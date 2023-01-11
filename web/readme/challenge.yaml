@@ -1,0 +1,14 @@
+apiVersion: kctf.dev/v1
+kind: Challenge
+metadata:
+  name: readme
+spec:
+  deployed: true
+  powDifficultySeconds: 0
+  network:
+    public: true
+  healthcheck:
+    # TIP: disable the healthcheck during development
+    enabled: true
+    image: us.gcr.io/idekctf-374221/readme-healthcheck:e9e60e3f4b249f27d36de70aa0b65bd44f47c6e28798024ac5a551372acbd992
+  image: us.gcr.io/idekctf-374221/readme-challenge:a062cf4824eba22ddcfb26a9779369994639741b096a7fc69b9b1060b58a8263

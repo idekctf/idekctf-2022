@@ -1,0 +1,14 @@
+apiVersion: kctf.dev/v1
+kind: Challenge
+metadata:
+  name: phpfun
+spec:
+  deployed: true
+  powDifficultySeconds: 0
+  network:
+    public: true
+  healthcheck:
+    # TIP: disable the healthcheck during development
+    enabled: true
+    image: us.gcr.io/idekctf-374221/phpfun-healthcheck:70c8c66a3206e2575491253f0c6b27c832c582ae0e49d463fa5fa438de64d3dd
+  image: us.gcr.io/idekctf-374221/phpfun-challenge:05c5c6e190d66a25944cd810d05842d49a0410de03309970d7c2cc4eeeb876bf

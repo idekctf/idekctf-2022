@@ -1,0 +1,37 @@
+apiVersion: kctf.dev/v1
+kind: Challenge
+metadata:
+  name: proxy-viewer
+spec:
+  deployed: true
+  powDifficultySeconds: 0
+  network:
+    public: true
+  podTemplate:
+    template:
+      spec:
+        containers:
+          - name: challenge
+            volumeMounts:
+              - name: cache
+                mountPath: /var/cache/nginx
+              - name: log
+                mountPath: /var/log/nginx
+              - name: lib
+                mountPath: /var/lib/nginx
+              - name: run
+                mountPath: /run
+        volumes:
+          - name: cache
+            emptyDir: {}
+          - name: log
+            emptyDir: {}
+          - name: lib
+            emptyDir: {}
+          - name: run
+            emptyDir: {}
+  healthcheck:
+    # TIP: disable the healthcheck during development
+    enabled: true
+    image: us.gcr.io/idekctf-374221/proxy-viewer-healthcheck:5fac288dba1fe9eb400af1741ef62a8156a1682d615c613482fd8ad07d9f97d5
+  image: us.gcr.io/idekctf-374221/proxy-viewer-challenge:a4c543a01f5055bb9b19f65b4b50677e941b4bd7767c036ebe22dccf2eb6c361

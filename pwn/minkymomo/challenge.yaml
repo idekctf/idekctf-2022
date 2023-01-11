@@ -1,0 +1,14 @@
+apiVersion: kctf.dev/v1
+kind: Challenge
+metadata:
+  name: minkymomo
+spec:
+  deployed: true
+  powDifficultySeconds: 0
+  network:
+    public: true
+  healthcheck:
+    # TIP: disable the healthcheck during development
+    enabled: false
+    image: us.gcr.io/idekctf-374221/sprinter-healthcheck:834d1113f16e777f7a248a6dacd49807bda96a314fcf6bb3ca3ffc28ca1a7b55
+  image: us.gcr.io/idekctf-374221/minkymomo-challenge:71de6fb2f841c18012e23cc55492e1b27e7428d5bdf7b5310d18773793f43069

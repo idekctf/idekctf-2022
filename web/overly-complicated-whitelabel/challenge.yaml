@@ -1,0 +1,25 @@
+apiVersion: kctf.dev/v1
+kind: Challenge
+metadata:
+  name: overly-complicated-whitelabel
+spec:
+  deployed: true
+  powDifficultySeconds: 0
+  network:
+    public: false
+  podTemplate:
+    template:
+      spec:
+        containers:
+          - name: challenge
+            volumeMounts:
+              - name: tmp
+                mountPath: /tmp
+        volumes:
+          - name: tmp
+            emptyDir: {}
+  healthcheck:
+    # TIP: disable the healthcheck during development
+    enabled: true
+    image: us.gcr.io/idekctf-374221/overly-complicated-whitelabel-healthcheck:f7a379fa55a41099eee30dd1419c8cddb718d65dd344ab87520c812fdf1b2811
+  image: us.gcr.io/idekctf-374221/overly-complicated-whitelabel-challenge:09c19fd017989bc214b2adb4bc5ec8cc273880d54085fccd19b00d0af8d0b438

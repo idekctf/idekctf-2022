@@ -1,0 +1,13 @@
+apiVersion: kctf.dev/v1
+kind: Challenge
+metadata:
+  name: cleithrophobia
+spec:
+  deployed: true
+  powDifficultySeconds: 0
+  network:
+    public: true
+  healthcheck:
+    # TIP: disable the healthcheck during development
+    enabled: false
+  image: us.gcr.io/idekctf-374221/cleithrophobia-challenge:e250a4f7e40ae20ebf23e483bc8676bbbef991a767c7b90b737d26323305057a

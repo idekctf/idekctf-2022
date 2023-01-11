@@ -1,0 +1,14 @@
+apiVersion: kctf.dev/v1
+kind: Challenge
+metadata:
+  name: malbolge3-revenge
+spec:
+  deployed: true
+  powDifficultySeconds: 0
+  network:
+    public: true
+  healthcheck:
+    # TIP: disable the healthcheck during development
+    enabled: true
+    image: us.gcr.io/idekctf-374221/malbolge3-revenge-healthcheck:478290d81167dfdc5c1529030e7a1c49c91c4d1a25f01ab39c0cbba68ae03547
+  image: us.gcr.io/idekctf-374221/malbolge3-revenge-challenge:5ee9e970aab427584789bcb9949d11ce4116ad914a629f1437ef2189cce9f77a

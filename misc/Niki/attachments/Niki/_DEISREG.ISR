@@ -1,0 +1,3 @@
+[Admin Install]
+Admin=1
+Error=Diese Installation kann nur von einem Benutzer mit Administratorprivilegien deinstalliert werden. Die Deinstallation wird abgebrochen.

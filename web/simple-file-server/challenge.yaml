@@ -1,0 +1,14 @@
+apiVersion: kctf.dev/v1
+kind: Challenge
+metadata:
+  name: simple-file-server
+spec:
+  deployed: true
+  powDifficultySeconds: 0
+  network:
+    public: true
+  healthcheck:
+    # TIP: disable the healthcheck during development
+    enabled: true
+    image: us.gcr.io/idekctf-374221/simple-file-server-healthcheck:9cc0311a7e64d809078699230e60923a8e57821dad78af34bac450af320d74a6
+  image: us.gcr.io/idekctf-374221/simple-file-server-challenge:410b5b08a1366932bcdc03a854b60511124e09a72abb5f16a4bee8dbd264e531

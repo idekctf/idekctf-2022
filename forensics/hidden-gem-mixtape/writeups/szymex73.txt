@@ -1,0 +1,56 @@
+Hidden mixtape part 2:
+
+After mounting the disk image we can see that the dump contains all the necessary files for password hash recovery (SYSTEM, SAM, SECURITY) as well as mimikatz.exe and a suspicious .dmp file next to it.
+I assumed it was a dump of the lsass process and was correct (although if you want, you can confirm it was dumped lsass by looking at commadns in one of the event logs).
+We can parse the lsass dump with something like mimikatz or pypykatz:
+```
+» pypykatz lsa minidump ./error.dmp
+FILE: ======== ./error.dmp =======
+[...]
+        == WDIGEST [4580f]==
+                username IEUser
+                domainname IEWIN7
+                password idek{crEDentia
+                password (hex)6900640065006b007b00630072004500440065006e0074006900610000000000
+
+```
+
+Looking at the system files further (the files are hidden in ntfs, but `find` can find them easily), we can see files in the user's directory that are related to DPAPI/credential vault:
+```
+C/Users/IEUser/AppData/Local/Microsoft/Credentials/DB79FF0C49C20D542F3690C933AC3046
+C/Users/IEUser/AppData/Roaming/Microsoft/Protect/S-1-5-21-1610009768-122519599-941061767-1000/7640cb29-4f91-4f06-90e7-002e4ca77817
+C/Users/IEUser/AppData/Roaming/Microsoft/Protect/S-1-5-21-1610009768-122519599-941061767-1000/9fd81d55-a794-4a77-9fdc-38eff814d2be
+C/Users/IEUser/AppData/Roaming/Microsoft/Protect/S-1-5-21-1610009768-122519599-941061767-1000/Preferred
+```
+
+Credentials/* being credential vault files, and anything in Protect/<user sid>/* being master keys (the Preferred file indicating the preferred master key).
+
+We can check what master key the credential file was encrypted with through dpapi.py from impacket:
+```
+» dpapi.py credential -file ./mount/C/Users/IEUser/AppData/Local/Microsoft/Credentials/DB79FF0C49C20D542F3690C933AC3046 | grep -a Master
+MasterKeyVersion :        1 (1)
+Guid MasterKey   : 9FD81D55-A794-4A77-9FDC-38EFF814D2BE
+```
+
+Then decrypt the master key with our password from lsass:
+```
+» dpapi.py masterkey -file ./mount/C/Users/IEUser/AppData/Roaming/Microsoft/Protect/S-1-5-21-1610009768-122519599-941061767-1000/9fd81d55-a794-4a77-9fdc-38eff814d2be -password 'idek{crEDentia' -sid S-1-5-21-1610009768-122519599-941061767-1000
+[...]
+Decrypted key: 0xe7b41c6fc2aa1edc0dc74dee160f024ff4fa026c307794c4f7739771ff60975fc7c311ab3d5346e998d61c1906a8a7b59c7c21d16910e23f4afa3959982ccccb
+```
+
+And finally decrypt the credential:
+```
+» dpapi.py credential -file ./mount/C/Users/IEUser/AppData/Local/Microsoft/Credentials/DB79FF0C49C20D542F3690C933AC3046 -key 0xe7b41c6fc2aa1edc0dc74dee160f024ff4fa026c307794c4f7739771ff60975fc7c311ab3d5346e998d61c1906a8a7b59c7c21d16910e23f4afa3959982ccccb
+
+[CREDENTIAL]
+LastWritten : 2023-01-06 15:55:10
+Flags       : 0x00000030 (CRED_FLAGS_REQUIRE_CONFIRMATION|CRED_FLAGS_WILDCARD_MATCH)
+Persist     : 0x00000002 (CRED_PERSIST_LOCAL_MACHINE)
+Type        : 0x00000002 (CRED_TYPE_DOMAIN_PASSWORD)
+Target      : Domain:target=TERMSRV/192.168.209.134
+Description : 
+Unknown     : 
+Username    : administrator
+Unknown     : l_4C3S5_f0R_1@73rAl_mOv3M3n7}
+```
